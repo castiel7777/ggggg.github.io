@@ -1,0 +1,287 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, #1e1b4b, #312e81);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    padding: 20px;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+.download-container {
+    background: rgba(17, 24, 39, 0.7);
+    backdrop-filter: blur(12px);
+    padding: 40px;
+    border-radius: 24px;
+    width: min(90%, 500px);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.title {
+    color: white;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+}
+
+.download-icon {
+    opacity: 0.9;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.title:hover .download-icon {
+    transform: scale(1.1) translateY(-2px);
+}
+
+input,
+select {
+    width: 100%;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    font-size: 16px;
+    background: rgba(17, 24, 39, 0.8);
+    color: white;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+input:hover,
+select:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    background: rgba(17, 24, 39, 0.9);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: rgba(99, 102, 241, 0.8);
+    background: rgba(17, 24, 39, 1);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%236366f1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 20px;
+    padding-right: 48px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(17, 24, 39, 0.8);
+    border-radius: 16px;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+select:hover {
+    border-color: rgba(99, 102, 241, 0.5);
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.2);
+}
+
+select:focus {
+    border-color: rgba(99, 102, 241, 0.8);
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+    outline: none;
+}
+
+select option {
+    background-color: #1a1f2e;
+    color: white;
+    padding: 16px;
+    margin: 4px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    border-radius: 40%;
+}
+
+select option:first-child {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+select option:last-child {
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+select option:hover {
+    background-color: #2d3548;
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.2);
+}
+
+select option:checked {
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    color: white;
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+}
+
+select:focus option {
+    margin: 8px;
+    padding: 16px;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    animation: optionFade 0.2s ease forwards;
+}
+
+select option[value=""][disabled] {
+    color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
+    background: rgba(17, 24, 39, 0.9);
+}
+
+.format {
+    border-radius: 50%;
+}
+
+@keyframes optionFade {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn-container {
+    margin: 32px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.download-btn {
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    padding: 16px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4),
+        0 0 0 2px rgba(99, 102, 241, 0.3);
+}
+
+.download-btn:active {
+    transform: translateY(0);
+}
+
+.helper-text {
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    font-size: 16px;
+    animation: float 2s ease infinite;
+}
+
+.sparkle {
+    display: inline-block;
+    animation: sparkle 1.5s ease infinite;
+    color: #6366f1;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes sparkle {
+
+    0%,
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.2) rotate(180deg);
+        opacity: 0.8;
+    }
+}
+
+@media (max-width: 768px) {
+    .download-container {
+        padding: 30px;
+    }
+
+    .title {
+        font-size: 24px;
+    }
+
+    .download-btn {
+        padding: 14px 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .download-container {
+        padding: 24px;
+    }
+
+    .title {
+        font-size: 22px;
+    }
+
+    input,
+    select {
+        padding: 14px 16px;
+    }
+
+    .download-btn {
+        padding: 12px 28px;
+    }
+
+    .helper-text {
+        font-size: 14px;
+    }
+}
